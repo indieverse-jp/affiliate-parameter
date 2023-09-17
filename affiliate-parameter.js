@@ -1,6 +1,10 @@
 var domainParamPairs = {
     'presco.asia': 'afad_param_1',
-    'moshimo.com': 's_v'
+    'moshimo.com': 's_v',
+    'link-ag.net': 'sid',
+    'felmat.net': 'pb',
+    'rentracks.jp': 'uix',
+    'medipartner.jp': 'userID'
   };
   
   var links = [].slice.call(document.getElementsByTagName('a'));
