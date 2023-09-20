@@ -1,3 +1,13 @@
+/*!
+ * Media Analytics Affiliate Parameter
+ * https://media-analytics.jp
+ *
+ * Copyright Indieverse
+ * https://media-analytics.jp
+ *
+ * Date: 2023-09-20
+ */
+
 var domainParamPairs = {
     'presco.asia': 'afad_param_1',
     'moshimo.com': 's_v',
