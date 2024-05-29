@@ -24,6 +24,7 @@ var domainParamPairs = {
     'ver-net.jp': 'suid',
     'ad-track.jp': 'suid',
     'adplushome.com': 'suid',
+    'fam-ad.com': 'suid',
     // affiliate_ad
     //'ra.excite.co.jp': 'uix',
     //'gro-fru.net': 'uix',
