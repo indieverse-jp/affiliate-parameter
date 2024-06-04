@@ -8,7 +8,8 @@
  * Date: 2023-09-20
  */
 
-var domainParamPairs = {
+(function () {
+  var domainParamPairs = {
     'presco.asia': 'afad_param_1',
     'moshimo.com': 's_v',
     'link-ag.net': 'sid',
@@ -32,21 +33,29 @@ var domainParamPairs = {
     //'m-ads.jp': 'uix',
     'aff.partners.io': 'afp',
   };
-  
-  var links = [].slice.call(document.getElementsByTagName('a'));
-  links.some(function(e) {
-    var url = e.href;
-  
-    for (var domain in domainParamPairs) {
-      if (url.indexOf(domain) !== -1) {
+
+  var links = Array.from(document.getElementsByTagName('a'));
+
+  links.forEach(function (link) {
+    var url = link.href;
+
+    Object.keys(domainParamPairs).forEach(function (domain) {
+      if (url.includes(domain)) {
         var paramKey = domainParamPairs[domain];
-        if (url.indexOf('?') === -1) {
-          url += '?' + paramKey + '=' + document.URL;
+        var redirectIndex = url.indexOf('?redirect_to=');
+        var newParam = `${paramKey}=${encodeURIComponent(document.URL)}`;
+
+        if (redirectIndex !== -1) {
+          var baseUrl = url.substring(0, redirectIndex);
+          var redirectParam = url.substring(redirectIndex);
+          var newUrl = `${baseUrl}?${newParam}&${redirectParam.substring(1)}`;
+          link.setAttribute('href', newUrl);
         } else {
-          url += '&' + paramKey + '=' + document.URL;
+          url += url.includes('?') ? `&${newParam}` : `?${newParam}`;
+          link.setAttribute('href', url);
         }
-        e.setAttribute('href', url);
         return;
       }
-    }
-});
+    });
+  });
+})();
