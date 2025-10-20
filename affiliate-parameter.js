@@ -14,22 +14,25 @@ var domainParamPairs = {
     'link-ag.net': 'sid',
     'felmat.net': 'pb',
     'rentracks.jp': 'uix',
-    'medipartner.jp': 'userID',
+    'medipartner.jp': 'pageoptimizer',
     // affilicode
     'affi-plus.com': 'pb',
     'rsmok.jp': 'pb',
     'matching-affi.jp': 'pb',
     'ratel-ad.com': 'pb',
     'aspservice.jp': 'pb',
+    'stair-s.com': 'pb',
     // famm
     'ver-net.jp': 'suid',
     'ad-track.jp': 'suid',
     'adplushome.com': 'suid',
+    'fam-ad.com': 'suid',
     // affiliate_ad
     //'ra.excite.co.jp': 'uix',
     //'gro-fru.net': 'uix',
     //'bizmotion.jp': 'uix',
     //'m-ads.jp': 'uix',
+    'aff.partners.io': 'afp',
   };
   
   var links = [].slice.call(document.getElementsByTagName('a'));
