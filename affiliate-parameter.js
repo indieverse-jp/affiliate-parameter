@@ -20,6 +20,7 @@ var domainParamPairs = {
     'rsmok.jp': 'pb',
     'matching-affi.jp': 'pb',
     'ratel-ad.com': 'pb',
+    'stair-s.com': 'pb',
     // famm
     'ver-net.jp': 'suid',
     'ad-track.jp': 'suid',
