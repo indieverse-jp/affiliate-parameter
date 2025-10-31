@@ -34,9 +34,9 @@ var domainParamPairs = {
     //'gro-fru.net': 'uix',
     //'bizmotion.jp': 'uix',
     //'m-ads.jp': 'uix',
-    'aff.partners.io': 'afp',
-    'asset-insight.jp': 'afp',
-    'pointfun.jp': 'afp',
+    'aff.partners.io': 'param2',
+    'asset-insight.jp': 'param2',
+    'pointfun.jp': 'param2',
   };
   
   var links = [].slice.call(document.getElementsByTagName('a'));
