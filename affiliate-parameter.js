@@ -22,17 +22,21 @@ var domainParamPairs = {
     'ratel-ad.com': 'pb',
     'aspservice.jp': 'pb',
     'stair-s.com': 'pb',
+    'sic-asp.com': 'pb',
     // famm
     'ver-net.jp': 'suid',
     'ad-track.jp': 'suid',
     'adplushome.com': 'suid',
     'fam-ad.com': 'suid',
+    'affiliateone.jp': 'suid',
     // affiliate_ad
     //'ra.excite.co.jp': 'uix',
     //'gro-fru.net': 'uix',
     //'bizmotion.jp': 'uix',
     //'m-ads.jp': 'uix',
     'aff.partners.io': 'afp',
+    'asset-insight.jp': 'afp',
+    'pointfun.jp': 'afp',
   };
   
   var links = [].slice.call(document.getElementsByTagName('a'));
