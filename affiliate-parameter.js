@@ -38,7 +38,52 @@ var domainParamPairs = {
     'asset-insight.jp': 'param2',
     'pointfun.jp': 'param2',
   };
-  
+
+  var gcidStorageKey = 'affiliateParameter.gcid';
+  var landingPageUrlStorageKey = 'affiliateParameter.landingPageUrl';
+
+  function getQueryParam(name) {
+    var regexp = new RegExp('[?&]' + name + '=([^&#]*)');
+    var result = regexp.exec(window.location.search);
+    if (!result) {
+      return '';
+    }
+
+    try {
+      return decodeURIComponent(result[1].replace(/\+/g, ' '));
+    } catch (e) {
+      return result[1];
+    }
+  }
+
+  function getStorageValue(key) {
+    try {
+      return window.localStorage.getItem(key) || '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function setStorageValue(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch (e) {
+    }
+  }
+
+  var gcid = getQueryParam('gcid');
+  var landingPageUrl = document.URL;
+
+  if (gcid) {
+    setStorageValue(gcidStorageKey, gcid);
+    setStorageValue(landingPageUrlStorageKey, landingPageUrl);
+  } else {
+    gcid = getStorageValue(gcidStorageKey);
+    landingPageUrl = getStorageValue(landingPageUrlStorageKey) || document.URL;
+  }
+
+  var affiliateParamValue = gcid ? gcid + ',' + landingPageUrl : document.URL;
+
   var links = [].slice.call(document.getElementsByTagName('a'));
   links.some(function(e) {
     var url = e.href;
@@ -47,9 +92,9 @@ var domainParamPairs = {
       if (url.indexOf(domain) !== -1) {
         var paramKey = domainParamPairs[domain];
         if (url.indexOf('?') === -1) {
-          url += '?' + paramKey + '=' + document.URL;
+          url += '?' + paramKey + '=' + encodeURIComponent(affiliateParamValue);
         } else {
-          url += '&' + paramKey + '=' + document.URL;
+          url += '&' + paramKey + '=' + encodeURIComponent(affiliateParamValue);
         }
         e.setAttribute('href', url);
         return;
